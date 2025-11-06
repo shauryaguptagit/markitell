@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markitell - GPA Tracker</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <h1>Markitell</h1>
+        <p>Your Personal GPA Trend Tracker</p>
+
+        <section class="dashboard">
+            <div class="card">
+                <h2>Current GPA</h2>
+                <h3 id="current-gpa">0.00</h3>
+            </div>
+            <div class="card">
+                <h2>Performance Alert</h2>
+                <p id="alert-message">Start by logging grades!</p>
+            </div>
+        </section>
+
+        <section class="template-loader card">
+            <h2>Easy Start</h2>
+            <p>Don't want to add subjects one-by-one? Load a predefined course template.</p>
+            <div class="template-form">
+                <select id="template-select">
+                    <option value="">-- Select a Course --</option>
+                    <option value="cse_sem1">B.Tech CSE - Sem 1</option>
+                    <option value="bba_sem1">BBA - Sem 1</option>
+                    <option value="ba_sem1">BA English - Sem 1</option>
+                </select>
+                <button id="load-template-btn">Load Subjects</button>
+            </div>
+        </section>
+
+        <section class="input-form card">
+            <h2>Add Custom Subject</h2>
+            <form id="grade-form">
+                <input type="text" id="subject-name" placeholder="Subject Name (e.g., Elective)" required>
+                <input type="number" id="subject-credits" placeholder="Credits (e.g., 3)" min="1" required>
+                <input type="number" id="subject-grade" placeholder="Grade (e.g., 9)" min="0" max="10" step="0.1" required>
+                <button type="submit">Add Subject</button>
+            </form>
+        </section>
+
+        <section class="grades-list card">
+            <h2>My Subjects</h2>
+            <ul id="grades-container">
+                </ul>
+        </section>
+
+    </main>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>

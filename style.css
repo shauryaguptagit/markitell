@@ -1,0 +1,191 @@
+/* --- 1. Student Theme Variables & Global Setup --- */
+:root {
+  --color-bg: #f4f7f6; /* Light grey background */
+  --color-surface: #ffffff; /* White cards */
+  --color-primary-gradient: linear-gradient(90deg, #4a90e2, #50e3c2); /* Blue to Teal */
+  --color-primary-glow: rgba(74, 144, 226, 0.3); /* Blue glow */
+  --color-text: #333333; /* Dark text */
+  --color-text-secondary: #777777; /* Grey text */
+  --color-border: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+section.card {
+    background-color: var(--color-surface);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+h1, h2, h3 {
+    background: var(--color-primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+h1 {
+    text-align: center;
+    font-size: 3em;
+}
+.container > p {
+    text-align: center;
+    color: var(--color-text-secondary);
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+p {
+    color: var(--color-text-secondary);
+    margin-bottom: 15px;
+}
+/* --- 2. Dashboard --- */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.card h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+.card h3 {
+    font-size: 2.5em;
+    margin: 0;
+}
+.card p {
+    font-size: 1.1em;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+/* --- 3. Template Loader --- */
+.template-form {
+    display: flex;
+    gap: 15px;
+}
+select, input[type="text"], input[type="number"] {
+    font-family: 'Poppins', sans-serif;
+    padding: 12px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    color: var(--color-text);
+    font-size: 1em;
+    flex-grow: 1;
+}
+button {
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-primary-gradient);
+    color: white;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px var(--color-primary-glow);
+}
+
+/* --- 4. Input Form --- */
+form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+}
+form button {
+    grid-column: 1 / -1; /* Make button span all columns */
+}
+
+/* --- 5. Grades List --- */
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    border: 1px solid var(--color-border);
+}
+.grade-info {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+.grade-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.grade-input {
+    width: 70px;
+    text-align: center;
+    padding: 8px;
+    font-weight: 600;
+}
+.delete-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+}
+.delete-btn:hover {
+    background-color: #e03131;
+}
+.empty-state {
+    background-color: transparent !important;
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: 10px;
+    border: none;
+}
+
+/* --- 6. Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .dashboard, form {
+        grid-template-columns: 1fr;
+    }
+    .template-form {
+        flex-direction: column;
+    }
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .grade-actions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .grade-input {
+        flex-grow: 1;
+    }
+}
